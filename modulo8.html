@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 8: Autoevaluación - ATLAS.ti</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .quiz-question { margin-bottom: 2rem; }
+        .quiz-options { margin: 1rem 0; }
+        .quiz-options label { display: block; margin-bottom: 0.5rem; cursor: pointer; }
+        .quiz-feedback { display: none; margin-top: 0.5rem; padding: 0.5rem 1rem; border-radius: 5px; }
+        .quiz-feedback.correct { background: #d4edda; color: #155724; }
+        .quiz-feedback.incorrect { background: #f8d7da; color: #721c24; }
+        .quiz-submit { margin-top: 1rem; }
+    </style>
+    <script>
+        function checkAnswer(q, correct) {
+            const radios = document.getElementsByName('q'+q);
+            let selected = null;
+            for (let i = 0; i < radios.length; i++) {
+                if (radios[i].checked) selected = radios[i].value;
+            }
+            document.getElementById('feedback'+q).style.display = 'block';
+            if (selected === correct) {
+                document.getElementById('feedback'+q).className = 'quiz-feedback correct';
+                document.getElementById('feedback'+q).innerText = '¡Correcto!';
+            } else {
+                document.getElementById('feedback'+q).className = 'quiz-feedback incorrect';
+                document.getElementById('feedback'+q).innerText = 'Respuesta incorrecta.';
+            }
+        }
+    </script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">Taller ATLAS.ti - Javi Cantón</div>
+            <div class="course-title">Módulo 8: Autoevaluación</div>
+        </div>
+    </header>
+
+    <!-- Contenedor principal -->
+    <div class="main-container">
+        <!-- Menú lateral -->
+        <nav class="sidebar">
+            <h3>Contenido del Curso</h3>
+            <ul class="nav-menu">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="modulo1.html">Módulo 1: Introducción al análisis cualitativo</a></li>
+                <li><a href="modulo2.html">Módulo 2: Creación de proyectos y carga de datos</a></li>
+                <li><a href="modulo3.html">Módulo 3: Codificación básica y automática</a></li>
+                <li><a href="modulo4.html">Módulo 4: Uso de memos y comentarios</a></li>
+                <li><a href="modulo5.html">Módulo 5: Visualización y análisis de datos</a></li>
+                <li><a href="modulo6.html">Módulo 6: Exportación de resultados</a></li>
+                <li><a href="modulo7.html">Módulo 7: Referencias y recursos adicionales</a></li>
+                <li><a href="modulo8.html" class="active">Módulo 8: Autoevaluación</a></li>
+                <li><a href="cierre.html">Cierre del curso</a></li>
+            </ul>
+        </nav>
+
+        <!-- Contenido principal -->
+        <main class="content">
+            <div class="module-card">
+                <img src="images/modulo8_img_quiz.jpeg" alt="Autoevaluación" class="module-image">
+                <div class="module-content">
+                    <h1 class="module-title">Módulo 8: Autoevaluación</h1>
+                    <p class="module-description">
+                        Pon a prueba tus conocimientos sobre análisis cualitativo y el uso de ATLAS.ti. Selecciona la respuesta correcta en cada pregunta y revisa la retroalimentación.
+                    </p>
+
+                    <!-- Pregunta 1 -->
+                    <div class="quiz-question">
+                        <strong>1. ¿Cuál es el objetivo principal del análisis cualitativo?</strong>
+                        <div class="quiz-options">
+                            <label><input type="radio" name="q1" value="a"> Medir variables numéricas</label>
+                            <label><input type="radio" name="q1" value="b"> Comprender significados y contextos</label>
+                            <label><input type="radio" name="q1" value="c"> Realizar encuestas masivas</label>
+                        </div>
+                        <button class="btn btn-primary quiz-submit" onclick="checkAnswer(1, 'b')">Comprobar</button>
+                        <div id="feedback1" class="quiz-feedback"></div>
+                    </div>
+
+                    <!-- Pregunta 2 -->
+                    <div class="quiz-question">
+                        <strong>2. ¿Qué elemento NO es un tipo de dato que puede analizarse en ATLAS.ti?</strong>
+                        <div class="quiz-options">
+                            <label><input type="radio" name="q2" value="a"> Imágenes</label>
+                            <label><input type="radio" name="q2" value="b"> Audio</label>
+                            <label><input type="radio" name="q2" value="c"> Datos numéricos puros (estadísticas sin contexto)</label>
+                        </div>
+                        <button class="btn btn-primary quiz-submit" onclick="checkAnswer(2, 'c')">Comprobar</button>
+                        <div id="feedback2" class="quiz-feedback"></div>
+                    </div>
+
+                    <!-- Pregunta 3 -->
+                    <div class="quiz-question">
+                        <strong>3. ¿Cuál es la función principal de los "códigos" en ATLAS.ti?</strong>
+                        <div class="quiz-options">
+                            <label><input type="radio" name="q3" value="a"> Etiquetar segmentos de datos relevantes</label>
+                            <label><input type="radio" name="q3" value="b"> Exportar resultados</label>
+                            <label><input type="radio" name="q3" value="c"> Crear gráficos estadísticos</label>
+                        </div>
+                        <button class="btn btn-primary quiz-submit" onclick="checkAnswer(3, 'a')">Comprobar</button>
+                        <div id="feedback3" class="quiz-feedback"></div>
+                    </div>
+
+                    <!-- Pregunta 4 -->
+                    <div class="quiz-question">
+                        <strong>4. ¿Qué es un "memo" en el contexto de ATLAS.ti?</strong>
+                        <div class="quiz-options">
+                            <label><input type="radio" name="q4" value="a"> Un tipo de documento primario</label>
+                            <label><input type="radio" name="q4" value="b"> Una nota analítica o reflexiva</label>
+                            <label><input type="radio" name="q4" value="c"> Un código automático</label>
+                        </div>
+                        <button class="btn btn-primary quiz-submit" onclick="checkAnswer(4, 'b')">Comprobar</button>
+                        <div id="feedback4" class="quiz-feedback"></div>
+                    </div>
+
+                    <!-- Pregunta 5 -->
+                    <div class="quiz-question">
+                        <strong>5. ¿Cuál de las siguientes opciones es una ventaja de usar ATLAS.ti?</strong>
+                        <div class="quiz-options">
+                            <label><input type="radio" name="q5" value="a"> Permite el análisis relacional y visualización de datos</label>
+                            <label><input type="radio" name="q5" value="b"> Solo permite análisis cuantitativo</label>
+                            <label><input type="radio" name="q5" value="c"> No permite trabajar en equipo</label>
+                        </div>
+                        <button class="btn btn-primary quiz-submit" onclick="checkAnswer(5, 'a')">Comprobar</button>
+                        <div id="feedback5" class="quiz-feedback"></div>
+                    </div>
+
+                    <!-- Pregunta 6 -->
+                    <div class="quiz-question">
+                        <strong>6. ¿Qué debes hacer antes de comenzar a codificar datos en ATLAS.ti?</strong>
+                        <div class="quiz-options">
+                            <label><input type="radio" name="q6" value="a"> Crear un proyecto y cargar los documentos</label>
+                            <label><input type="radio" name="q6" value="b"> Exportar los resultados</label>
+                            <label><input type="radio" name="q6" value="c"> Realizar análisis cuantitativo</label>
+                        </div>
+                        <button class="btn btn-primary quiz-submit" onclick="checkAnswer(6, 'a')">Comprobar</button>
+                        <div id="feedback6" class="quiz-feedback"></div>
+                    </div>
+
+                    <!-- Pregunta 7 -->
+                    <div class="quiz-question">
+                        <strong>7. ¿Cuál es el propósito de las visualizaciones en ATLAS.ti?</strong>
+                        <div class="quiz-options">
+                            <label><input type="radio" name="q7" value="a"> Facilitar la interpretación de patrones y relaciones</label>
+                            <label><input type="radio" name="q7" value="b"> Generar encuestas</label>
+                            <label><input type="radio" name="q7" value="c"> Realizar cálculos estadísticos complejos</label>
+                        </div>
+                        <button class="btn btn-primary quiz-submit" onclick="checkAnswer(7, 'a')">Comprobar</button>
+                        <div id="feedback7" class="quiz-feedback"></div>
+                    </div>
+
+                    <!-- Pregunta 8 -->
+                    <div class="quiz-question">
+                        <strong>8. ¿Qué es una "cita" (quotation) en ATLAS.ti?</strong>
+                        <div class="quiz-options">
+                            <label><input type="radio" name="q8" value="a"> Un segmento de datos seleccionado y codificado</label>
+                            <label><input type="radio" name="q8" value="b"> Un tipo de exportación</label>
+                            <label><input type="radio" name="q8" value="c"> Un gráfico de barras</label>
+                        </div>
+                        <button class="btn btn-primary quiz-submit" onclick="checkAnswer(8, 'a')">Comprobar</button>
+                        <div id="feedback8" class="quiz-feedback"></div>
+                    </div>
+
+                    <!-- Pregunta 9 -->
+                    <div class="quiz-question">
+                        <strong>9. ¿Cuál de las siguientes es una metodología cualitativa?</strong>
+                        <div class="quiz-options">
+                            <label><input type="radio" name="q9" value="a"> Teoría fundamentada</label>
+                            <label><input type="radio" name="q9" value="b"> Análisis de contenido</label>
+                            <label><input type="radio" name="q9" value="c"> Ambas anteriores</label>
+                        </div>
+                        <button class="btn btn-primary quiz-submit" onclick="checkAnswer(9, 'c')">Comprobar</button>
+                        <div id="feedback9" class="quiz-feedback"></div>
+                    </div>
+
+                    <!-- Pregunta 10 -->
+                    <div class="quiz-question">
+                        <strong>10. ¿Qué recurso es recomendable para profundizar en el uso de ATLAS.ti?</strong>
+                        <div class="quiz-options">
+                            <label><input type="radio" name="q10" value="a"> Manual oficial y webinars</label>
+                            <label><input type="radio" name="q10" value="b"> Solo foros no oficiales</label>
+                            <label><input type="radio" name="q10" value="c"> Ninguno, solo la intuición</label>
+                        </div>
+                        <button class="btn btn-primary quiz-submit" onclick="checkAnswer(10, 'a')">Comprobar</button>
+                        <div id="feedback10" class="quiz-feedback"></div>
+                    </div>
+
+                    <div class="highlight" style="margin-top:2rem;">
+                        <strong>¡Enhorabuena por completar la autoevaluación!</strong><br>
+                        Si has tenido dudas, te recomendamos repasar los módulos anteriores y consultar los recursos del Módulo 7.
+                    </div>
+
+                    <!-- Navegación -->
+                    <div class="lesson-nav">
+                        <a href="modulo7.html" class="btn btn-secondary">← Módulo 7</a>
+                        <a href="cierre.html" class="btn btn-primary">Ir al cierre del curso →</a>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="mailto:info@javiercanton.com">Contacto</a>
+                <a href="#" onclick="alert('Función de descarga disponible próximamente')">Descargar materiales</a>
+                <a href="#">Soporte técnico</a>
+            </div>
+            <p>&copy; 2025 (CC) Javier Cantón. Todos los derechos reservados.</p>
+            <p>Para consultas: info@javiercanton.com</p>
+        </div>
+    </footer>
+</body>
+</html> 
